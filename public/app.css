@@ -1,0 +1,251 @@
+/*
+ * CSS Styles for Application
+ *
+ */
+
+/* Resets */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* This defines what 1rem is */
+    font-size: 62.5%; /* 1 rem = 10px; 10px/16px = 62.5% */
+
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; 
+        /* //1 rem = 9px, 9/16 = 50% */
+    }
+
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; 
+        /* //1 rem = 8px, 8/16 = 50% */
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; 
+        /* //1rem = 12, 12/16 */
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    
+    line-height: 1.7;
+    color: #777;
+}
+
+
+
+  a{
+    text-decoration: none;
+  }
+  
+  /* Main color palette */
+  .header{
+    background-color: #fff;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 -25px 11px 20px #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    min-width: 1200px;
+    
+  }
+  
+  .header ul{
+    list-style-type: none;
+    text-align: right;
+    padding: 0 7.5rem;
+    float: right;
+  }
+  
+  .header ul li{
+    display: inline-block;
+    padding: 1rem 1rem 0 2rem;
+  }
+  
+  .header ul li a{
+    text-transform: uppercase;
+    font-weight: 900 !important;
+    font-size: 1.6rem;
+  }
+  
+  .header ul li.loggedIn{
+    display: none;
+  }
+  
+  body.loggedIn .header ul li.loggedIn{
+    display: inline-block;
+  }
+  
+  body.loggedIn .header ul li.loggedOut{
+    display: none;
+  }
+  
+  .header .logo{
+    text-align: left;
+    padding: 0 0 0 90px;
+    float: left;
+  }
+  
+  .header .logo img{
+      width: 50px;
+  }
+  
+  .content {
+    margin-top: 150px;
+    width: 1000px;
+    margin: 150px auto;
+  }
+  
+  .footer{
+    width: 100%;
+    background-color: #1a1a1a;
+    padding: 50px 0;
+    text-align: center;
+    border-width: 1px 0 0 0;
+    border-color: #fff;
+    border-style: solid;
+  }
+  
+  .footer .copyright{
+    color: #fff;
+    font-size: 1.4rem;
+  }
+  
+  .heading-primary {
+    color: #333;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 9rem;
+    font-size: 4rem;
+    word-spacing: 1rem;
+    font-weight: 400;
+    text-align: center;
+ }
+  
+  .heading-secondary {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    letter-spacing: 0.2rem;
+    transition: all 0.2s;
+    font-weight: 400;
+ }
+  /* @media only screen and (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem;
+   }
+ }
+  @media only screen and (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem;
+   }
+ }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, .2);
+ } */
+  .heading-tertiary {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+ }
+  .paragraph {
+    font-size: 1.6rem;
+ }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem;
+ }
+
+
+ .btn, .btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active, .btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .2);
+}
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+.btn--white::after {
+  background-color: #fff;
+}
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+
+
+.card{
+  
+  font-size: 1.5rem;
+  margin-right: 3rem;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 1.5rem 4rem rgba(#000, .15);
+  color: #f7f7f7;
+  display: inline-block;
+}
+
+.card-prup{
+  background-image: linear-gradient(to right bottom, #9C27B0, #4A148C);
+}
+
+.card-grn{
+  background-image: linear-gradient(to right bottom,#66BB6A, #2E7D32);
+}
